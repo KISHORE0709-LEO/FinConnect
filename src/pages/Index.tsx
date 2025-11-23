@@ -1,4 +1,5 @@
 import StarfieldBackground from "@/components/StarfieldBackground";
+import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ZoneCards from "@/components/ZoneCards";
 import IntelligenceTeaser from "@/components/IntelligenceTeaser";
@@ -10,8 +11,9 @@ const Index = () => {
   return (
     <div className="min-h-screen relative overflow-hidden">
       <StarfieldBackground />
+      <Header />
       
-      <main className="relative z-10">
+      <main className="relative z-10 pt-16">
         <HeroSection />
         <ZoneCards />
         <IntelligenceTeaser />
