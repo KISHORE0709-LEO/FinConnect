@@ -1,7 +1,15 @@
 import { Button } from "./ui/button";
 import { Sparkles, TrendingUp } from "lucide-react";
+import { useRef } from "react";
 
 const HeroSection = () => {
+  const scrollToZones = () => {
+    const zonesSection = document.getElementById('learning-zones');
+    if (zonesSection) {
+      zonesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative z-10 pt-20 pb-16 px-4">
       <div className="max-w-6xl mx-auto text-center">
@@ -24,6 +32,7 @@ const HeroSection = () => {
           <Button 
             size="lg" 
             className="bg-primary text-primary-foreground hover:bg-primary/90 glow-border text-lg px-8 py-6 font-semibold"
+            onClick={scrollToZones}
           >
             <TrendingUp className="mr-2 h-5 w-5" />
             Start Learning

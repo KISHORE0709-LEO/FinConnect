@@ -1,8 +1,12 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import StarfieldBackground from "@/components/StarfieldBackground";
 import { Card } from "@/components/ui/card";
-import { Coins, Sparkles, ShoppingCart, Scale, PiggyBank, Target, Calculator, Star } from "lucide-react";
+import { Coins, Sparkles, ShoppingCart, Scale, PiggyBank, Target, Calculator, Star, X, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import { toast } from "@/components/ui/use-toast";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const games = [
   {
@@ -72,6 +76,25 @@ const games = [
 ];
 
 const KidZone = () => {
+  const navigate = useNavigate();
+  const [showGameDialog, setShowGameDialog] = useState(false);
+
+  const handlePlayGame = (gameTitle: string) => {
+    if (gameTitle === "Treasure Coin Hunt") {
+      setShowGameDialog(true);
+    } else {
+      toast({
+        title: "Coming Soon! 🚀",
+        description: `${gameTitle} will be available in the next update!`,
+      });
+    }
+  };
+
+  const launchTreasureHunt = () => {
+    // Navigate directly to the web-based game
+    navigate('/treasure-coin-hunt');
+  };
+
   return (
     <div className="min-h-screen relative overflow-hidden">
       <StarfieldBackground />
@@ -134,7 +157,11 @@ const KidZone = () => {
                     <span className="text-xs text-primary font-semibold">
                       {game.concept}
                     </span>
-                    <Button size="sm" className="bg-primary/20 text-primary hover:bg-primary/30">
+                    <Button 
+                      size="sm" 
+                      className="bg-primary/20 text-primary hover:bg-primary/30"
+                      onClick={() => handlePlayGame(game.title)}
+                    >
                       Play Now
                     </Button>
                   </div>
@@ -142,6 +169,74 @@ const KidZone = () => {
               </Card>
             ))}
           </div>
+
+          {/* Game Description Dialog */}
+          <Dialog open={showGameDialog} onOpenChange={setShowGameDialog}>
+            <DialogContent className="max-w-2xl bg-card border-primary/30 glow-card">
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-bold glow-text flex items-center gap-2">
+                  🏴‍☠️ Treasure Coin Hunt 🏴‍☠️
+                </DialogTitle>
+              </DialogHeader>
+              
+              <div className="space-y-4 text-foreground">
+                <p className="text-lg font-semibold text-primary">
+                  What is Treasure Coin Hunt?
+                </p>
+                <p>
+                  Treasure Coin Hunt is a fun game where you explore a treasure room, collect coins and money notes, and place them in the correct treasure slot to win prizes!
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <p className="font-semibold text-accent mb-2">⭐ Your Mission:</p>
+                    <ul className="text-sm space-y-1 text-muted-foreground">
+                      <li>• Move around the treasure maze</li>
+                      <li>• Find coins and notes (₹1, ₹2, ₹5, ₹10, ₹20, etc.)</li>
+                      <li>• Put correct money into treasure slots</li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <p className="font-semibold text-accent mb-2">🎮 Controls:</p>
+                    <ul className="text-sm space-y-1 text-muted-foreground">
+                      <li>• Arrow Keys: Move Up/Down/Left/Right</li>
+                      <li>• Walk into coins to pick them up</li>
+                      <li>• R: Restart Level | Esc: Quit</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div>
+                  <p className="font-semibold text-accent mb-2">🏆 Rewards & Features:</p>
+                  <p className="text-sm text-muted-foreground">
+                    ✨ Stars ✨ Badges ✨ Trophies ✨ 5 Progressive Levels ✨ Timer Challenges ✨ Achievement System
+                  </p>
+                </div>
+                
+                <div className="flex gap-4 pt-4">
+                  <Button 
+                    onClick={launchTreasureHunt}
+                    className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90 glow-border"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Play className="w-4 h-4" />
+                      Start Adventure!
+                    </div>
+                  </Button>
+                  
+                  <Button 
+                    variant="outline" 
+                    onClick={() => setShowGameDialog(false)}
+                    className="border-primary/50 text-foreground hover:bg-primary/10"
+                  >
+                    <X className="w-4 h-4 mr-2" />
+                    Maybe Later
+                  </Button>
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
 
           {/* Achievement Showcase */}
           <Card className="bg-card border-primary/30 p-8 glow-card text-center">

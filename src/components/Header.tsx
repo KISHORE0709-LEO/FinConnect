@@ -52,18 +52,21 @@ const Header = () => {
         </Sheet>
 
         <NavLink to="/" className="absolute left-1/2 transform -translate-x-1/2">
-          <h1 className="text-2xl md:text-3xl font-bold text-primary-foreground tracking-wider font-game glow-text">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-widest glow-text" style={{color: '#101820', WebkitTextStroke: '1.5px #101820'}}>
             FINCONNECT
           </h1>
         </NavLink>
 
-        <Button
-          variant="outline"
-          className="border-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground glow-border"
-        >
-          <LogIn className="h-4 w-4 mr-2" />
-          Sign In
-        </Button>
+        <NavLink to="/signin">
+          <Button
+            variant="outline"
+            className="z-50 relative"
+            style={{backgroundColor: '#101820', color: '#39ff14', borderColor: '#39ff14', boxShadow: '0 0 16px #39ff14cc'}}
+          >
+            <LogIn className="h-4 w-4 mr-2" style={{color: '#39ff14'}} />
+            Sign In
+          </Button>
+        </NavLink>
       </div>
     </header>
   );
