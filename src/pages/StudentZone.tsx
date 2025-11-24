@@ -1,4 +1,5 @@
 import StarfieldBackground from "@/components/StarfieldBackground";
+import Header from "@/components/Header";
 import { Card } from "@/components/ui/card";
 import { Store, Briefcase, ShoppingBag, Compass, Trophy, Wallet, Building, Plane, Heart, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -92,8 +93,9 @@ const StudentZone = () => {
   return (
     <div className="min-h-screen relative overflow-hidden">
       <StarfieldBackground />
+      <Header />
       
-      <main className="relative z-10 pt-24 pb-16 px-4">
+      <main className="relative z-10 pt-32 pb-16 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">

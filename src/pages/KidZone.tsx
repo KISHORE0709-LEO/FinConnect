@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import StarfieldBackground from "@/components/StarfieldBackground";
+import Header from "@/components/Header";
 import { Card } from "@/components/ui/card";
 import { Coins, Sparkles, ShoppingCart, Scale, PiggyBank, Target, Calculator, Star, X, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -78,6 +79,13 @@ const games = [
 const KidZone = () => {
   const navigate = useNavigate();
   const [showGameDialog, setShowGameDialog] = useState(false);
+  const [completedGames, setCompletedGames] = useState(0);
+  
+  useEffect(() => {
+    // Check localStorage for completed games
+    const completed = localStorage.getItem('kidZoneCompleted') || '0';
+    setCompletedGames(parseInt(completed));
+  }, []);
 
   const handlePlayGame = (gameTitle: string) => {
     if (gameTitle === "Treasure Coin Hunt") {
@@ -98,8 +106,9 @@ const KidZone = () => {
   return (
     <div className="min-h-screen relative overflow-hidden">
       <StarfieldBackground />
+      <Header />
       
-      <main className="relative z-10 pt-24 pb-16 px-4">
+      <main className="relative z-10 pt-32 pb-16 px-4">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
@@ -120,9 +129,9 @@ const KidZone = () => {
           <Card className="bg-card border-primary/30 p-6 mb-12 glow-card">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-xl font-bold">Your Learning Progress</h3>
-              <span className="text-primary font-bold">2/8 Games Completed</span>
+              <span className="text-primary font-bold">{completedGames}/8 Games Completed</span>
             </div>
-            <Progress value={25} className="h-3" />
+            <Progress value={(completedGames / 8) * 100} className="h-3" />
             <p className="text-sm text-muted-foreground mt-2">Keep playing to unlock more badges!</p>
           </Card>
 
