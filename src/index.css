@@ -121,4 +121,13 @@ All colors MUST be HSL.
                   0 0 50px hsl(var(--neon-green) / 0.3);
     }
   }
+
+  .finconnect-title {
+    font-family: 'JetBrains Mono', 'Courier New', monospace !important;
+    color: #101820;
+    -webkit-text-stroke: 1.5px #101820;
+    text-shadow: 0 0 10px hsl(var(--neon-green) / 0.5),
+                 0 0 20px hsl(var(--neon-green) / 0.3),
+                 0 0 30px hsl(var(--neon-green) / 0.2);
+  }
 }

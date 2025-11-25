@@ -52,7 +52,7 @@ const Header = () => {
         </Sheet>
 
         <NavLink to="/" className="absolute left-1/2 transform -translate-x-1/2">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-widest glow-text" style={{color: '#101820', WebkitTextStroke: '1.5px #101820'}}>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-widest finconnect-title">
             FINCONNECT
           </h1>
         </NavLink>
