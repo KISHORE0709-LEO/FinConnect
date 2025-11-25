@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, Home, Baby, GraduationCap, Briefcase, Info, Shield, LogIn } from "lucide-react";
+import { Menu, Home, Baby, GraduationCap, Briefcase, Info, Shield, LogIn, DollarSign, Brain } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { NavLink } from "./NavLink";
@@ -12,6 +12,8 @@ const Header = () => {
     { name: "Kid Zone", path: "/kid-zone", icon: Baby },
     { name: "Student Zone", path: "/student-zone", icon: GraduationCap },
     { name: "Professional Zone", path: "/professional-zone", icon: Briefcase },
+    { name: "AI Financial Co-Pilot", path: "/financial-copilot", icon: Brain },
+    { name: "Currency Converter", path: "/currency-converter", icon: DollarSign },
     { name: "About", path: "/about", icon: Info },
     { name: "Privacy", path: "/privacy", icon: Shield },
   ];
