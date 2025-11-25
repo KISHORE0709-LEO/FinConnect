@@ -10,6 +10,7 @@ import ProfessionalZone from "./pages/ProfessionalZone";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import TreasureCoinHunt from "./pages/TreasureCoinHunt";
+import ChoreAdventure from "./pages/ChoreAdventure";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/treasure-coin-hunt" element={<TreasureCoinHunt />} />
+          <Route path="/chore-adventure" element={<ChoreAdventure />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

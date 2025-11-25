@@ -90,6 +90,8 @@ const KidZone = () => {
   const handlePlayGame = (gameTitle: string) => {
     if (gameTitle === "Treasure Coin Hunt") {
       setShowGameDialog(true);
+    } else if (gameTitle === "Chore Adventure") {
+      navigate('/chore-adventure');
     } else {
       toast({
         title: "Coming Soon! 🚀",
