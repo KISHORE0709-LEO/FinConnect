@@ -7,6 +7,8 @@ import Index from "./pages/Index";
 import KidZone from "./pages/KidZone";
 import StudentZone from "./pages/StudentZone";
 import ProfessionalZone from "./pages/ProfessionalZone";
+import CurrencyConverter from "./pages/CurrencyConverter";
+import FinancialCopilot from "./pages/FinancialCopilot";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import TreasureCoinHunt from "./pages/TreasureCoinHunt";
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/kid-zone" element={<KidZone />} />
           <Route path="/student-zone" element={<StudentZone />} />
           <Route path="/professional-zone" element={<ProfessionalZone />} />
+          <Route path="/currency-converter" element={<CurrencyConverter />} />
+          <Route path="/financial-copilot" element={<FinancialCopilot />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/treasure-coin-hunt" element={<TreasureCoinHunt />} />
